@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		528435EA22B1E97D000AA2E1 /* CMAltimeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435E922B1E97D000AA2E1 /* CMAltimeterViewController.m */; };
+		528435ED22B1EBFE000AA2E1 /* GyroscopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435EC22B1EBFE000AA2E1 /* GyroscopeViewController.m */; };
+		528435F022B1EFAF000AA2E1 /* MagnetometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435EF22B1EFAF000AA2E1 /* MagnetometerViewController.m */; };
+		528435F322B1F944000AA2E1 /* AccelerometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435F222B1F944000AA2E1 /* AccelerometerViewController.m */; };
+		528435F622B1FC35000AA2E1 /* DeviceMotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435F522B1FC35000AA2E1 /* DeviceMotionViewController.m */; };
+		528435F922B1FCFF000AA2E1 /* CMPedometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435F822B1FCFF000AA2E1 /* CMPedometerViewController.m */; };
+		528435FC22B23DC3000AA2E1 /* AmbientLightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528435FB22B23DC3000AA2E1 /* AmbientLightViewController.m */; };
+		5291A27E22B1DA5900AE6F43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A27D22B1DA5900AE6F43 /* AppDelegate.m */; };
+		5291A28122B1DA5900AE6F43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A28022B1DA5900AE6F43 /* ViewController.m */; };
+		5291A28422B1DA5900AE6F43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5291A28222B1DA5900AE6F43 /* Main.storyboard */; };
+		5291A28622B1DA5A00AE6F43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5291A28522B1DA5A00AE6F43 /* Assets.xcassets */; };
+		5291A28922B1DA5A00AE6F43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5291A28722B1DA5A00AE6F43 /* LaunchScreen.storyboard */; };
+		5291A28C22B1DA5A00AE6F43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A28B22B1DA5A00AE6F43 /* main.m */; };
+		5291A29422B1DAA100AE6F43 /* SensorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A29322B1DAA100AE6F43 /* SensorManager.m */; };
+		5291A29722B1E23200AE6F43 /* DistanceSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A29622B1E23200AE6F43 /* DistanceSensorViewController.m */; };
+		5291A29A22B1E33F00AE6F43 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291A29922B1E33F00AE6F43 /* BaseViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		528435E822B1E97D000AA2E1 /* CMAltimeterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMAltimeterViewController.h; sourceTree = "<group>"; };
+		528435E922B1E97D000AA2E1 /* CMAltimeterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMAltimeterViewController.m; sourceTree = "<group>"; };
+		528435EB22B1EBFE000AA2E1 /* GyroscopeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GyroscopeViewController.h; sourceTree = "<group>"; };
+		528435EC22B1EBFE000AA2E1 /* GyroscopeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GyroscopeViewController.m; sourceTree = "<group>"; };
+		528435EE22B1EFAF000AA2E1 /* MagnetometerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagnetometerViewController.h; sourceTree = "<group>"; };
+		528435EF22B1EFAF000AA2E1 /* MagnetometerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagnetometerViewController.m; sourceTree = "<group>"; };
+		528435F122B1F944000AA2E1 /* AccelerometerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccelerometerViewController.h; sourceTree = "<group>"; };
+		528435F222B1F944000AA2E1 /* AccelerometerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccelerometerViewController.m; sourceTree = "<group>"; };
+		528435F422B1FC35000AA2E1 /* DeviceMotionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceMotionViewController.h; sourceTree = "<group>"; };
+		528435F522B1FC35000AA2E1 /* DeviceMotionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceMotionViewController.m; sourceTree = "<group>"; };
+		528435F722B1FCFF000AA2E1 /* CMPedometerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPedometerViewController.h; sourceTree = "<group>"; };
+		528435F822B1FCFF000AA2E1 /* CMPedometerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMPedometerViewController.m; sourceTree = "<group>"; };
+		528435FA22B23DC3000AA2E1 /* AmbientLightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmbientLightViewController.h; sourceTree = "<group>"; };
+		528435FB22B23DC3000AA2E1 /* AmbientLightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmbientLightViewController.m; sourceTree = "<group>"; };
+		5291A27922B1DA5900AE6F43 /* Sensor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sensor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5291A27C22B1DA5900AE6F43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5291A27D22B1DA5900AE6F43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5291A27F22B1DA5900AE6F43 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5291A28022B1DA5900AE6F43 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5291A28322B1DA5900AE6F43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5291A28522B1DA5A00AE6F43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5291A28822B1DA5A00AE6F43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5291A28A22B1DA5A00AE6F43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5291A28B22B1DA5A00AE6F43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5291A29222B1DAA100AE6F43 /* SensorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SensorManager.h; sourceTree = "<group>"; };
+		5291A29322B1DAA100AE6F43 /* SensorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SensorManager.m; sourceTree = "<group>"; };
+		5291A29522B1E23200AE6F43 /* DistanceSensorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DistanceSensorViewController.h; sourceTree = "<group>"; };
+		5291A29622B1E23200AE6F43 /* DistanceSensorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DistanceSensorViewController.m; sourceTree = "<group>"; };
+		5291A29822B1E33F00AE6F43 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		5291A29922B1E33F00AE6F43 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5291A27622B1DA5900AE6F43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5291A27022B1DA5900AE6F43 = {
+			isa = PBXGroup;
+			children = (
+				5291A27B22B1DA5900AE6F43 /* Sensor */,
+				5291A27A22B1DA5900AE6F43 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5291A27A22B1DA5900AE6F43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5291A27922B1DA5900AE6F43 /* Sensor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5291A27B22B1DA5900AE6F43 /* Sensor */ = {
+			isa = PBXGroup;
+			children = (
+				5291A27C22B1DA5900AE6F43 /* AppDelegate.h */,
+				5291A27D22B1DA5900AE6F43 /* AppDelegate.m */,
+				5291A27F22B1DA5900AE6F43 /* ViewController.h */,
+				5291A28022B1DA5900AE6F43 /* ViewController.m */,
+				5291A29822B1E33F00AE6F43 /* BaseViewController.h */,
+				5291A29922B1E33F00AE6F43 /* BaseViewController.m */,
+				5291A29522B1E23200AE6F43 /* DistanceSensorViewController.h */,
+				5291A29622B1E23200AE6F43 /* DistanceSensorViewController.m */,
+				528435E822B1E97D000AA2E1 /* CMAltimeterViewController.h */,
+				528435E922B1E97D000AA2E1 /* CMAltimeterViewController.m */,
+				528435EB22B1EBFE000AA2E1 /* GyroscopeViewController.h */,
+				528435EC22B1EBFE000AA2E1 /* GyroscopeViewController.m */,
+				528435EE22B1EFAF000AA2E1 /* MagnetometerViewController.h */,
+				528435EF22B1EFAF000AA2E1 /* MagnetometerViewController.m */,
+				528435F122B1F944000AA2E1 /* AccelerometerViewController.h */,
+				528435F222B1F944000AA2E1 /* AccelerometerViewController.m */,
+				528435F422B1FC35000AA2E1 /* DeviceMotionViewController.h */,
+				528435F522B1FC35000AA2E1 /* DeviceMotionViewController.m */,
+				528435F722B1FCFF000AA2E1 /* CMPedometerViewController.h */,
+				528435F822B1FCFF000AA2E1 /* CMPedometerViewController.m */,
+				528435FA22B23DC3000AA2E1 /* AmbientLightViewController.h */,
+				528435FB22B23DC3000AA2E1 /* AmbientLightViewController.m */,
+				5291A29222B1DAA100AE6F43 /* SensorManager.h */,
+				5291A29322B1DAA100AE6F43 /* SensorManager.m */,
+				5291A28222B1DA5900AE6F43 /* Main.storyboard */,
+				5291A28522B1DA5A00AE6F43 /* Assets.xcassets */,
+				5291A28722B1DA5A00AE6F43 /* LaunchScreen.storyboard */,
+				5291A28A22B1DA5A00AE6F43 /* Info.plist */,
+				5291A28B22B1DA5A00AE6F43 /* main.m */,
+			);
+			path = Sensor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5291A27822B1DA5900AE6F43 /* Sensor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5291A28F22B1DA5A00AE6F43 /* Build configuration list for PBXNativeTarget "Sensor" */;
+			buildPhases = (
+				5291A27522B1DA5900AE6F43 /* Sources */,
+				5291A27622B1DA5900AE6F43 /* Frameworks */,
+				5291A27722B1DA5900AE6F43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sensor;
+			productName = Sensor;
+			productReference = 5291A27922B1DA5900AE6F43 /* Sensor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5291A27122B1DA5900AE6F43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "朱帅(EX-ZHUSHUAI002)";
+				TargetAttributes = {
+					5291A27822B1DA5900AE6F43 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 5291A27422B1DA5900AE6F43 /* Build configuration list for PBXProject "Sensor" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5291A27022B1DA5900AE6F43;
+			productRefGroup = 5291A27A22B1DA5900AE6F43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5291A27822B1DA5900AE6F43 /* Sensor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5291A27722B1DA5900AE6F43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5291A28922B1DA5A00AE6F43 /* LaunchScreen.storyboard in Resources */,
+				5291A28622B1DA5A00AE6F43 /* Assets.xcassets in Resources */,
+				5291A28422B1DA5900AE6F43 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5291A27522B1DA5900AE6F43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5291A28122B1DA5900AE6F43 /* ViewController.m in Sources */,
+				5291A29A22B1E33F00AE6F43 /* BaseViewController.m in Sources */,
+				5291A29722B1E23200AE6F43 /* DistanceSensorViewController.m in Sources */,
+				5291A28C22B1DA5A00AE6F43 /* main.m in Sources */,
+				5291A27E22B1DA5900AE6F43 /* AppDelegate.m in Sources */,
+				528435FC22B23DC3000AA2E1 /* AmbientLightViewController.m in Sources */,
+				528435F622B1FC35000AA2E1 /* DeviceMotionViewController.m in Sources */,
+				528435F922B1FCFF000AA2E1 /* CMPedometerViewController.m in Sources */,
+				528435EA22B1E97D000AA2E1 /* CMAltimeterViewController.m in Sources */,
+				528435ED22B1EBFE000AA2E1 /* GyroscopeViewController.m in Sources */,
+				5291A29422B1DAA100AE6F43 /* SensorManager.m in Sources */,
+				528435F322B1F944000AA2E1 /* AccelerometerViewController.m in Sources */,
+				528435F022B1EFAF000AA2E1 /* MagnetometerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5291A28222B1DA5900AE6F43 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5291A28322B1DA5900AE6F43 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5291A28722B1DA5A00AE6F43 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5291A28822B1DA5A00AE6F43 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5291A28D22B1DA5A00AE6F43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5291A28E22B1DA5A00AE6F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5291A29022B1DA5A00AE6F43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UG85JH6L5;
+				INFOPLIST_FILE = Sensor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZHUSHUAISGOD.Sensor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5291A29122B1DA5A00AE6F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7UG85JH6L5;
+				INFOPLIST_FILE = Sensor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ZHUSHUAISGOD.Sensor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5291A27422B1DA5900AE6F43 /* Build configuration list for PBXProject "Sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5291A28D22B1DA5A00AE6F43 /* Debug */,
+				5291A28E22B1DA5A00AE6F43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5291A28F22B1DA5A00AE6F43 /* Build configuration list for PBXNativeTarget "Sensor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5291A29022B1DA5A00AE6F43 /* Debug */,
+				5291A29122B1DA5A00AE6F43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5291A27122B1DA5900AE6F43 /* Project object */;
+}
