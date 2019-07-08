@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import <CoreMotion/CMAltimeter.h>
+#import <CoreNFC/CoreNFC.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,69 +25,61 @@ NS_ASSUME_NONNULL_BEGIN
  @abstract      距离传感器代理方法
  */
 - (void)proximityStateDidChange:(BOOL)proximityState;
+
 /*!
  @method
  @abstract      气压计代理方法
  */
 - (void)getCMAltitudeData:(CMAltitudeData * _Nullable)altitudeData error:(NSError * _Nullable)error;
 
-
-
-@end
-
-// 距离传感器
-@protocol DistanceSensorDelegate <NSObject>
-
-- (void)proximityStateDidChange:(BOOL)proximityState;
-
-@end
-
-// 气压计
-@protocol CMAltimeterDelegate <NSObject>
-
-- (void)getCMAltitudeData:(CMAltitudeData * _Nullable)altitudeData error:(NSError * _Nullable)error;
-
-@end
-
-// 陀螺仪
-@protocol GyroscopeDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      陀螺仪代理方法
+ */
 - (void)getCMGyroData:(CMGyroData * _Nullable)gyroData error:(NSError * _Nullable)error;
 
-@end
-
-// 磁力计
-@protocol MagnetometerDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      磁力计理方法
+ */
 - (void)getCMMagnetometerData:(CMMagnetometerData * _Nullable)magnetometerData error:(NSError * _Nullable)error;
 
-@end
-
-// 加速计
-@protocol AccelerometerDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      加速计代理方法
+ */
 - (void)getCMAccelerometerData:(CMAccelerometerData * _Nullable)accelerometerData error:(NSError * _Nullable)error;
 
-@end
-
-// 运动传感器
-@protocol DeviceMotionDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      运动传感器代理方法
+ */
 - (void)getCMDeviceMotion:(CMDeviceMotion * _Nullable)motion error:(NSError * _Nullable)error;
 
-@end
-
-// 计步器
-@protocol CMPedometerDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      计步器代理方法
+ */
 - (void)getCMPedometerData:(CMPedometerData * _Nullable)pedometerData error:(NSError * _Nullable)error;
 
-@end
-
-// 光感
-@protocol AmbientLightDelegate <NSObject>
-
+/*!
+ @method
+ @abstract      光感代理方法
+ */
 - (void)getBrightnessValue:(float)brightnessValue;
+
+/*!
+ @method
+ @abstract      touchID
+ */
+- (void)getTouchIDResultSuccess:(BOOL)success error:(NSError * _Nullable)error;
+
+/*!
+ @method
+ @abstract      NFC
+ */
+- (void)readerSession:(NFCNDEFReaderSession *)session didInvalidateWithError:(NSError *)error;
+- (void)readerSession:(NFCNDEFReaderSession *)session didDetectNDEFs:(NSArray*)messages;
 
 @end
 
@@ -94,45 +87,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedManager;
 
+@property (nonatomic, weak) id <SensorManagerDelegate> sensorDelegate;
+
 // 距离传感器
 - (void)startDistanceSensor;
 - (void)endDistanceSensor;
-@property (nonatomic, weak) id<DistanceSensorDelegate> distanceSensorDelegate;
 
 // 气压计
 - (void)startCMAltimeter;
 - (void)endCMAltimeter;
-@property (nonatomic, weak) id<CMAltimeterDelegate> CMAltimeterDelegate;
 
 // 陀螺仪
 - (void)startGyroscope;
 - (void)endGyroscope;
-@property (nonatomic, weak) id<GyroscopeDelegate> GyroscopeDelegate;
 
 // 磁力计
 - (void)startMagnetometer;
 - (void)endMagnetometer;
-@property (nonatomic, weak) id<MagnetometerDelegate> MagnetometerDelegate;
 
 // 加速计
 - (void)startAccelerometer;
 - (void)endAccelerometer;
-@property (nonatomic, weak) id<AccelerometerDelegate> AccelerometerDelegate;
 
 // 运动传感器
 - (void)startDeviceMotion;
 - (void)endDeviceMotion;
-@property (nonatomic, weak) id<DeviceMotionDelegate> DeviceMotionDelegate;
 
 // 计步器
 - (void)startCMPedometer;
 - (void)endCMPedometer;
-@property (nonatomic, weak) id<CMPedometerDelegate> CMPedometerDelegate;
 
 // 光感
 - (void)startAmbientLight;
 - (void)endAmbientLight;
-@property (nonatomic, weak) id<AmbientLightDelegate> AmbientLightDelegate;
+
+// touchID
+- (void)startTouchID;
+
+// NFC
+- (void)startNFC;
 
 @end
 

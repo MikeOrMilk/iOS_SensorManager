@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>just for test</string>
 	<key>NSCameraUsageDescription</key>
 	<string>just for test</string>
 	<key>NSMotionUsageDescription</key>

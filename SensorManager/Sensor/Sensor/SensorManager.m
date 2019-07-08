@@ -10,13 +10,16 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ImageIO/ImageIO.h>
+#import <LocalAuthentication/LocalAuthentication.h>
+#import <CoreNFC/CoreNFC.h>
 
-@interface SensorManager () <AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface SensorManager () <AVCaptureVideoDataOutputSampleBufferDelegate, NFCNDEFReaderSessionDelegate>
 
 @property (nonatomic, strong) CMAltimeter *altimeter;
 @property (nonatomic, strong) CMMotionManager *motionManager;
 @property (nonatomic, strong) CMPedometer *pedometer;
 @property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) NFCNDEFReaderSession *NFCsession;
 
 @end
 
@@ -30,7 +33,7 @@ static NSTimeInterval UpdateInterval = 0.1;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _manager = [[self alloc] init];
-     });
+    });
     return _manager;
 }
 
@@ -48,8 +51,8 @@ static NSTimeInterval UpdateInterval = 0.1;
 
 - (void)proximityStateDidChange:(NSNotification *)note
 {
-    if ([self.distanceSensorDelegate respondsToSelector:@selector(proximityStateDidChange:)]) {
-        [self.distanceSensorDelegate proximityStateDidChange:[UIDevice currentDevice].proximityState];
+    if ([self.sensorDelegate respondsToSelector:@selector(proximityStateDidChange:)]) {
+        [self.sensorDelegate proximityStateDidChange:[UIDevice currentDevice].proximityState];
     }
 }
 
@@ -70,8 +73,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     
     @WeakSelf(self);
     [self.altimeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMAltitudeData * _Nullable altitudeData, NSError * _Nullable error) {
-        if ([weakSelf.CMAltimeterDelegate respondsToSelector:@selector(getCMAltitudeData:error:)]) {
-            [weakSelf.CMAltimeterDelegate getCMAltitudeData:altitudeData error:error];
+        if ([weakSelf.sensorDelegate respondsToSelector:@selector(getCMAltitudeData:error:)]) {
+            [weakSelf.sensorDelegate getCMAltitudeData:altitudeData error:error];
         }
     }];
 }
@@ -98,8 +101,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     self.motionManager.gyroUpdateInterval = UpdateInterval;
     @WeakSelf(self);
     [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMGyroData * _Nullable gyroData, NSError * _Nullable error) {
-        if ([weakSelf.GyroscopeDelegate respondsToSelector:@selector(getCMGyroData:error:)]) {
-            [weakSelf.GyroscopeDelegate getCMGyroData:gyroData error:error];
+        if ([weakSelf.sensorDelegate respondsToSelector:@selector(getCMGyroData:error:)]) {
+            [weakSelf.sensorDelegate getCMGyroData:gyroData error:error];
         }
     }];
 }
@@ -118,8 +121,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     self.motionManager.magnetometerUpdateInterval = UpdateInterval;
     @WeakSelf(self);
     [self.motionManager startMagnetometerUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMMagnetometerData * _Nullable magnetometerData, NSError * _Nullable error) {
-        if ([weakSelf.MagnetometerDelegate respondsToSelector:@selector(getCMMagnetometerData:error:)]) {
-            [weakSelf.MagnetometerDelegate getCMMagnetometerData:magnetometerData error:error];
+        if ([weakSelf.sensorDelegate respondsToSelector:@selector(getCMMagnetometerData:error:)]) {
+            [weakSelf.sensorDelegate getCMMagnetometerData:magnetometerData error:error];
         }
     }];
 }
@@ -139,8 +142,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     self.motionManager.accelerometerUpdateInterval = UpdateInterval;
     @WeakSelf(self);
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
-        if ([weakSelf.AccelerometerDelegate respondsToSelector:@selector(getCMAccelerometerData:error:)]) {
-            [weakSelf.AccelerometerDelegate getCMAccelerometerData:accelerometerData error:error];
+        if ([weakSelf.sensorDelegate respondsToSelector:@selector(getCMAccelerometerData:error:)]) {
+            [weakSelf.sensorDelegate getCMAccelerometerData:accelerometerData error:error];
         }
     }];
 }
@@ -160,8 +163,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue new]
                                             withHandler:^(CMDeviceMotion * _Nullable motion,
                                                           NSError * _Nullable error) {
-                                                if ([self.DeviceMotionDelegate respondsToSelector:@selector(getCMDeviceMotion:error:)]) {
-                                                    [self.DeviceMotionDelegate getCMDeviceMotion:motion error:error
+                                                if ([self.sensorDelegate respondsToSelector:@selector(getCMDeviceMotion:error:)]) {
+                                                    [self.sensorDelegate getCMDeviceMotion:motion error:error
                                                      ];
                                                 }
                                             }];
@@ -187,8 +190,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     }
     
     [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
-        if ([self.CMPedometerDelegate respondsToSelector:@selector(getCMPedometerData:error:)]) {
-            [self.CMPedometerDelegate getCMPedometerData:pedometerData error:error];
+        if ([self.sensorDelegate respondsToSelector:@selector(getCMPedometerData:error:)]) {
+            [self.sensorDelegate getCMPedometerData:pedometerData error:error];
         }
     }];
 }
@@ -240,8 +243,8 @@ static NSTimeInterval UpdateInterval = 0.1;
     CFRelease(metadataDict);
     NSDictionary *exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
     float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
-    if ([self.AmbientLightDelegate respondsToSelector:@selector(getBrightnessValue:)]) {
-        [self.AmbientLightDelegate getBrightnessValue:brightnessValue];
+    if ([self.sensorDelegate respondsToSelector:@selector(getBrightnessValue:)]) {
+        [self.sensorDelegate getBrightnessValue:brightnessValue];
     }
 }
 
@@ -250,5 +253,86 @@ static NSTimeInterval UpdateInterval = 0.1;
     self.session = nil;
 }
 
+#pragma mark - touchID
+
+- (void)startTouchID {
+    //首先判断版本
+    if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_8_0) {
+        NSLog(@"系统版本不支持TouchID");
+        return;
+    }
+    LAContext *context = [[LAContext alloc] init];
+    context.localizedFallbackTitle = @"输入密码解锁";
+    context.localizedCancelTitle = @"取消";
+    NSError *error = nil;
+    NSString *result = @"需要验证您的touch ID";
+    
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                             error:&error]) {
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                localizedReason:result reply:^(BOOL success, NSError * _Nullable error) {
+                    if ([self.sensorDelegate respondsToSelector:@selector(getTouchIDResultSuccess:error:)]) {
+                        [self.sensorDelegate getTouchIDResultSuccess:success error:error];
+                    }
+                }];
+    } else {
+        switch (error.code) {
+            case LAErrorBiometryNotEnrolled:
+            {
+                NSLog(@"TouchID is not enrolled");
+                break;
+            }
+            case LAErrorPasscodeNotSet:
+            {
+                NSLog(@"A passcode has not been set");
+                break;
+            }
+            default:
+            {
+                NSLog(@"TouchID not available");
+                break;
+            }
+        }
+    }
+}
+
+#pragma mark - NFC
+
+- (NFCNDEFReaderSession *)NFCsession {
+    if (!_NFCsession) {
+        _NFCsession = [[NFCNDEFReaderSession alloc] initWithDelegate:self
+                                                               queue:nil
+                                            invalidateAfterFirstRead:NO];
+    }
+    return _NFCsession;
+}
+
+- (void)startNFC {
+    if (NFCNDEFReaderSession.readingAvailable) {
+        self.NFCsession.alertMessage = @"把卡放到手机背面";
+        [self.NFCsession beginSession];
+    } else {
+        NSLog(@"此设备不支持NFC");
+    }
+}
+
+// - NFCNDEFReaderSessionDelegate
+- (void)readerSession:(NFCNDEFReaderSession *)session didInvalidateWithError:(NSError *)error{
+    // 读取失败
+    // error.code == 201 扫描超时
+    // error.code == 200 取消扫描
+    if ([self.sensorDelegate respondsToSelector:@selector(readerSession:didInvalidateWithError:)]) {
+        [self.sensorDelegate readerSession:session didInvalidateWithError:error];
+    }
+}
+- (void)readerSession:(NFCNDEFReaderSession *)session didDetectNDEFs:(NSArray*)messages
+{
+    // 成功
+    if ([self.sensorDelegate respondsToSelector:@selector(readerSession:didDetectNDEFs:)]) {
+        [self.sensorDelegate readerSession:session didDetectNDEFs:messages];
+    }
+}
+
 
 @end
+
